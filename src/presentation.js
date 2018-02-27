@@ -22,7 +22,6 @@ const images = {
   ecs: require('./assets/ecs.png'),
   html: require('./assets/html.png'),
   lightsOut: require('./assets/lights-out.png'),
-  lightsOutCode: require('./assets/lights-out-render.png'),
   linus: require('./assets/linus.png'),
   pointless: require('./assets/pointless.png'),
   pointlessLogo: require('./assets/pointless-logo.svg'),
@@ -33,8 +32,11 @@ const images = {
   reactAframe: require('./assets/react-aframe.svg'),
   reactCode: require('./assets/react-code.png'),
   tutorial: require('./assets/tutorial.png'),
-  vigeverse: require('./assets/vigeverse.jpg')
+  vigeverse: require('./assets/vigeverse.jpg'),
+  viget: require('./assets/viget.png')
 }
+
+preloader(images)
 
 const theme = createTheme(
   {
@@ -78,8 +80,8 @@ export default class Presentation extends React.Component {
           <br />
 
           <Text textColor="quaternary" textSize="1em">
-            Prayash Thapa <span class="spacer">|</span> Developer{' '}
-            <span class="spacer">|</span>
+            Prayash Thapa <span className="spacer">|</span> Developer{' '}
+            <span className="spacer">|</span>
             <Link href="https://prayash.io">prayash.io</Link>
           </Text>
         </Slide>
@@ -100,6 +102,8 @@ export default class Presentation extends React.Component {
               Viget
             </Link>
           </Heading>
+
+          <Image width="40%" src={images.viget} />
         </Slide>
 
         <Slide transition={['slide', 'fade']} align="center center">
@@ -202,7 +206,6 @@ export default class Presentation extends React.Component {
             </Link>
           </Text>
           <br />
-          <br />
 
           <Layout>
             <Fill>
@@ -289,7 +292,7 @@ export default class Presentation extends React.Component {
             margin={`0 0 ${TEXT_BMARGIN} 1em`}
           >
             – Its declarative nature keeps the focus on{' '}
-            <span class="bold">composition</span> rather than procedure.
+            <span className="bold">composition</span> rather than procedure.
           </Text>
           <br />
         </Slide>
@@ -381,13 +384,6 @@ export default class Presentation extends React.Component {
           <Image width="80%" src={images.preactCode} alt="preact" />
         </Slide>
 
-        <Slide
-          transition={['fade']}
-          bgImage={images.lightsOutCode}
-          bgSize="contain"
-          bgRepeat="no-repeat"
-        />
-
         <Slide transition={['slide', 'fade']}>
           <Heading textSize="2em" textAlign="left">
             Performance
@@ -436,7 +432,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']}>
           <Heading textSize="2em" textAlign="left">
-            Rich Component Registry
+            Rich Component Registry + Community
           </Heading>
 
           <List>
@@ -445,10 +441,18 @@ export default class Presentation extends React.Component {
                 aframe-material
               </Link>
             </ListItem>
-            <ListItem textSize="1em">E B D# F# B D#</ListItem>
-            <ListItem textSize="1em">C G E G B D</ListItem>
-            <ListItem textSize="1em">C G D G B C (capo 1)</ListItem>
-            <ListItem textSize="1em">D F# A E A D (capo 3)</ListItem>
+
+            <ListItem textSize="1em">
+              <Link href="https://ngokevin.github.io/kframe/scenes/statistics-dashboard/">
+                aframe + d3
+              </Link>
+            </ListItem>
+
+            <ListItem textSize="1em">
+              <Link href="https://webvr.donmccurdy.com/animation/">
+                aframe-animation
+              </Link>
+            </ListItem>
           </List>
         </Slide>
 
@@ -465,7 +469,7 @@ export default class Presentation extends React.Component {
             textAlign="left"
             margin={`0 0 ${TEXT_BMARGIN} 1em`}
           >
-            – Web Audio API is still experiment (audio sucks on mobile)
+            – Web Audio API audio is tough on mobile
           </Text>
           <Text
             textColor="secondary"
